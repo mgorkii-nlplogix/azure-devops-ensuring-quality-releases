@@ -156,3 +156,6 @@ override.tf.json
 
 # Ignore jmeter
 **/jmeter/*
+
+**/.vars/*
+.vars
