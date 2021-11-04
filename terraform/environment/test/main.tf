@@ -5,13 +5,12 @@ provider "azurerm" {
   client_secret   = "${var.client_secret}"
   features {}
 }
-terraform {
-  backend "azurerm" {
-    storage_account_name = ""
-    container_name       = ""
-    key                  = ""
-    access_key           = ""
-  }
+  terraform {
+    backend "azurerm" {
+      storage_account_name = "qualityreleasesa "
+      container_name       = "containerqa"
+      access_key           = "VpwB4YXfqEfe/q16ZK9JVkrgBdJPmJMsaC+VmXx0w7zsD7itlA+iIG89WIq/k7dZ4LoGNhF989lzot6xVr1Jxg=="
+    }
 }
 module "resource_group" {
   source               = "../../modules/resource_group"
@@ -24,7 +23,7 @@ module "network" {
   location             = "${var.location}"
   virtual_network_name = "${var.virtual_network_name}"
   application_type     = "${var.application_type}"
-  resource_type        = "NET"
+  resource_type        = "NET"  
   resource_group       = "${module.resource_group.resource_group_name}"
   address_prefix_test  = "${var.address_prefix_test}"
 }
