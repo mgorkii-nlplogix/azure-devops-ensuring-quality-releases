@@ -7,9 +7,9 @@ provider "azurerm" {
 }
   terraform {
     backend "azurerm" {
-      storage_account_name = "qualityreleasesa "
+      storage_account_name = "qualityreleasesa"
       container_name       = "containerqa"
-      key                  = "VpwB4YXfqEfe/q16ZK9JVkrgBdJPmJMsaC+VmXx0w7zsD7itlA+iIG89WIq/k7dZ4LoGNhF989lzot6xVr1Jxg=="
+      key                  = "terraform.tfstate"
       access_key           = "VpwB4YXfqEfe/q16ZK9JVkrgBdJPmJMsaC+VmXx0w7zsD7itlA+iIG89WIq/k7dZ4LoGNhF989lzot6xVr1Jxg=="
     }
 }
