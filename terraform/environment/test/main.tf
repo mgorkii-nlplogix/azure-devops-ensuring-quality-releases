@@ -9,6 +9,7 @@ provider "azurerm" {
     backend "azurerm" {
       storage_account_name = "qualityreleasesa "
       container_name       = "containerqa"
+      key                  = "VpwB4YXfqEfe/q16ZK9JVkrgBdJPmJMsaC+VmXx0w7zsD7itlA+iIG89WIq/k7dZ4LoGNhF989lzot6xVr1Jxg=="
       access_key           = "VpwB4YXfqEfe/q16ZK9JVkrgBdJPmJMsaC+VmXx0w7zsD7itlA+iIG89WIq/k7dZ4LoGNhF989lzot6xVr1Jxg=="
     }
 }
@@ -44,10 +45,21 @@ module "appservice" {
   resource_type    = "AppService"
   resource_group   = "${module.resource_group.resource_group_name}"
 }
-module "publicip" {
+module "public_ip" {
   source           = "../../modules/publicip"
   location         = "${var.location}"
   application_type = "${var.application_type}"
   resource_type    = "publicip"
   resource_group   = "${module.resource_group.resource_group_name}"
 }
+module "vm" {
+  source           = "../../modules/vm"
+  location         = "${var.location}"
+  resource_group   = "${module.resource_group.resource_group_name}"
+  application_type = "${var.application_type}"
+  resource_type    = "vm"
+  subnet_id        = "${module.network.subnet_id_test}"
+  public_ip_address_id = "${module.publicip.public_ip_address_id}"
+  vm_admin_username  = var.vm_admin_username 
+}
+
