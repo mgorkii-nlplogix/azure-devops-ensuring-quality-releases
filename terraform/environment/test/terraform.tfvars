@@ -14,3 +14,8 @@ application_type = "myApplication"
 virtual_network_name = "udacity-network-test"
 address_space = ["10.5.0.0/16"]
 address_prefix_test = "10.5.1.0/24"
+
+# VM
+vm_size = "Standard_B1s"
+vm_admin_username = "admin"
+vm_password = "admin"

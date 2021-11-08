@@ -1,3 +1,18 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = ">= 2.26"
+    }
+  }
+
+  backend "azurerm" {
+    storage_account_name = "qualityreleasesa"
+    container_name       = "containerqa"
+    key                  = "terraform.tfstate"
+    access_key           = "VpwB4YXfqEfe/q16ZK9JVkrgBdJPmJMsaC+VmXx0w7zsD7itlA+iIG89WIq/k7dZ4LoGNhF989lzot6xVr1Jxg=="
+  }
+}
 provider "azurerm" {
   tenant_id       = "${var.tenant_id}"
   subscription_id = "${var.subscription_id}"
@@ -5,14 +20,7 @@ provider "azurerm" {
   client_secret   = "${var.client_secret}"
   features {}
 }
-  terraform {
-    backend "azurerm" {
-      storage_account_name = "qualityreleasesa"
-      container_name       = "containerqa"
-      key                  = "terraform.tfstate"
-      access_key           = "VpwB4YXfqEfe/q16ZK9JVkrgBdJPmJMsaC+VmXx0w7zsD7itlA+iIG89WIq/k7dZ4LoGNhF989lzot6xVr1Jxg=="
-    }
-}
+
 module "resource_group" {
   source               = "../../modules/resource_group"
   resource_group       = "${var.resource_group}"
@@ -45,7 +53,7 @@ module "appservice" {
   resource_type    = "AppService"
   resource_group   = "${module.resource_group.resource_group_name}"
 }
-module "public_ip" {
+module "publicip" {
   source           = "../../modules/publicip"
   location         = "${var.location}"
   application_type = "${var.application_type}"
@@ -60,6 +68,8 @@ module "vm" {
   resource_type    = "vm"
   subnet_id        = "${module.network.subnet_id_test}"
   public_ip_address_id = "${module.publicip.public_ip_address_id}"
-  vm_admin_username  = var.vm_admin_username 
+  vm_size              = var.vm_size
+  vm_admin_username    = var.vm_admin_username
+  vm_password          = var.vm_password
 }
 
