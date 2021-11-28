@@ -92,7 +92,7 @@ stages:
     pool:
       vmImage: 'ubuntu-18.04'
     steps:
-    - task: ArchiveAPI@0
+    - task: ArchiveFiles@2
       displayName: Archive FakeRestAPI
       inputs:
         rootFolderOrFile: '$(System.DefaultWorkingDirectory)/fakerestapi'
