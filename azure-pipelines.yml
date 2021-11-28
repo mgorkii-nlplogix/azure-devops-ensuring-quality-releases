@@ -11,7 +11,7 @@ trigger:
     exclude:
     - README.md
     - .gitignore
-    - screenshots/
+    
 
 stages:
 - stage: Provision
@@ -65,7 +65,7 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'init'
-        backendServiceArm: 'azure-sc'
+        backendServiceArm: 'azure-connector'
         backendAzureRmResourceGroupName: 'udemy-azure-test'
         backendAzureRmStorageAccountName: 'qualityreleasesa'
         backendAzureRmContainerName: 'containerqa'
@@ -80,7 +80,7 @@ stages:
         commandOptions: |
           -auto-approve 
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
-        environmentServiceNameAzureRM: 'azurerm-sc'
+        environmentServiceNameAzureRM: 'azure-connector'
 
 - stage: Build
   jobs:
@@ -124,7 +124,7 @@ stages:
   - deployment: deployment_fakerestapi
     displayName: Deploy FakeRestAPI
     pool:
-      vmImage: 'ubuntu-16.04'
+      vmImage: 'ubuntu-18.04'
     environment: 'TEST'
     strategy:
       runOnce:
@@ -133,8 +133,8 @@ stages:
           - task: AzureWebApp@1
             displayName: Deploy Azure WebApp
             inputs:
-              azureSubscription: 'azurerm-sc'
-              appName: 'lingchenzhu-webapi-AppService'
+              azureSubscription: 'Azure subscription 1'
+              appName: 'mgorki-api'
               appType: webApp
               package: $(Pipeline.Workspace)/drop-fakerestapi/fakerestapi-$(Build.BuildId).zip
               deploymentMethod: zipDeploy
@@ -345,10 +345,10 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'init'
-        backendServiceArm: 'azurerm-sc'
-        backendAzureRmResourceGroupName: 'tstate'
-        backendAzureRmStorageAccountName: 'tstate12785'
-        backendAzureRmContainerName: 'tstate'
+        backendServiceArm: 'azure-connector'
+        backendAzureRmResourceGroupName: 'udemy-azure-test'
+        backendAzureRmStorageAccountName: 'qualityreleasesa'
+        backendAzureRmContainerName: 'containerqa'
         backendAzureRmKey: 'terraform.tfstate'
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
 
@@ -360,4 +360,4 @@ stages:
         commandOptions: |
           -auto-approve 
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
-        environmentServiceNameAzureRM: 'azurerm-sc'
+        environmentServiceNameAzureRM: 'azure-connector'
