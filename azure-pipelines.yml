@@ -128,7 +128,7 @@ stages:
           - task: AzureWebApp@1
             displayName: Deploy Azure WebApp
             inputs:
-              azureSubscription: 'Azure subscription 1'
+              azureSubscription: 'azure-connector'
               appName: 'mgorki-api'
               appType: webApp
               package: $(Pipeline.Workspace)/drop-fakerestapi/fakerestapi-$(Build.BuildId).zip
