@@ -31,7 +31,7 @@ stages:
     - task: InstallSSHKey@0
       inputs:
         knownHostsEntry: 'default'
-        sshKeySecureFile: 'myKey.pub'
+        sshKeySecureFile: 'myKey.txt'
 
 
 
@@ -329,7 +329,7 @@ stages:
     - task: InstallSSHKey@0
       inputs:
         knownHostsEntry: 'default'
-        sshKeySecureFile: 'myKey.pub'
+        sshKeySecureFile: 'myKey.txt'
 
     - bash: |
         cp $(Agent.TempDirectory)/terraform.tfvars $(System.DefaultWorkingDirectory)/terraform/environments/test
