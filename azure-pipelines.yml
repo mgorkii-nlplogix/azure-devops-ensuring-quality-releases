@@ -30,8 +30,9 @@ stages:
     # Needed for Terraform VM deployment
     - task: InstallSSHKey@0
       inputs:
-        knownHostsEntry: 'default'
-        sshKeySecureFile: 'myKey.txt'
+        knownHostsEntry: 'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ=='
+        sshPublicKey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCjQcoyYyYpr4dO5oMM4BwBiX0vfpajGJv+Yb3CTjVqRUNroD+IVQzFvLb6Z/3IgAH7avAn7Ahr9022/zSJdLvPO6RYOo9fAOn4OknEG3ZXVLipYF76Omudx8/BJabcUgyo4t57rsuCrejxVj1lKZa626VXhkHKeDAC37PmocBMICi5hP1lqyy1UF7wNObmNsYq2j0umQGLlu00+oj/dYpl7l5PSuxhsJj4GXcsJqnENoDKQVmVHoV7oWX4m9ZBj50j6wlJx6diEMMAmA14CDTcH+ouPRZTdPnvjsQZFYJHEGDcJNy3xVXs57EDo2eybNqmUwUr2rJqlaBuenj7VRxV mgorkii@NLP-LT40'
+        sshKeySecureFile: 'id_rsa'
 
 
 
@@ -91,7 +92,7 @@ stages:
     pool:
       vmImage: 'ubuntu-18.04'
     steps:
-    - task: ArchiveFiles@2
+    - task: ArchiveAPI
       displayName: Archive FakeRestAPI
       inputs:
         rootFolderOrFile: '$(System.DefaultWorkingDirectory)/fakerestapi'
@@ -328,8 +329,9 @@ stages:
     # Needed for Terraform VM deployment
     - task: InstallSSHKey@0
       inputs:
-        knownHostsEntry: 'default'
-        sshKeySecureFile: 'myKey.txt'
+        knownHostsEntry: 'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ=='
+        sshPublicKey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCjQcoyYyYpr4dO5oMM4BwBiX0vfpajGJv+Yb3CTjVqRUNroD+IVQzFvLb6Z/3IgAH7avAn7Ahr9022/zSJdLvPO6RYOo9fAOn4OknEG3ZXVLipYF76Omudx8/BJabcUgyo4t57rsuCrejxVj1lKZa626VXhkHKeDAC37PmocBMICi5hP1lqyy1UF7wNObmNsYq2j0umQGLlu00+oj/dYpl7l5PSuxhsJj4GXcsJqnENoDKQVmVHoV7oWX4m9ZBj50j6wlJx6diEMMAmA14CDTcH+ouPRZTdPnvjsQZFYJHEGDcJNy3xVXs57EDo2eybNqmUwUr2rJqlaBuenj7VRxV mgorkii@NLP-LT40'
+        sshKeySecureFile: 'id_rsa'
 
     - bash: |
         cp $(Agent.TempDirectory)/terraform.tfvars $(System.DefaultWorkingDirectory)/terraform/environments/test
