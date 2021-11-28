@@ -30,8 +30,7 @@ stages:
     # Needed for Terraform VM deployment
     - task: InstallSSHKey@0
       inputs:
-        knownHostsEntry: 'known_hosts'
-        sshPublicKey: $(PUBLIC_KEY)
+        knownHostsEntry: 'default'
         sshKeySecureFile: 'myKey.pub'
 
 
@@ -329,8 +328,7 @@ stages:
     # Needed for Terraform VM deployment
     - task: InstallSSHKey@0
       inputs:
-        knownHostsEntry: 'known_hosts'
-        sshPublicKey: $(PUBLIC_KEY)
+        knownHostsEntry: 'default'
         sshKeySecureFile: 'myKey.pub'
 
     - bash: |
