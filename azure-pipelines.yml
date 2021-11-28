@@ -25,7 +25,7 @@ stages:
       name: tfvardef
       displayName: Download terraform.tfvars
       inputs:
-    secureFile: 'terraform.tfvars' 
+      secureFile: 'terraform.tfvars' 
     - task: InstallSSHKey@0
       inputs:
         knownHostsEntry: 'known_hosts'
