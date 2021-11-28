@@ -38,7 +38,7 @@ stages:
 
 
     - bash: |
-        cp $(Agent.TempDirectory)/terraform.tfvars $(System.DefaultWorkingDirectory)/terraform/environments/test
+        cp $(Agent.TempDirectory)/terraform.tfvars $(System.DefaultWorkingDirectory)/terraform/environment/test
       displayName: Copy terraform.tfvars
     - bash: |
         echo Pipeline workspace dir is $(Pipeline.Workspace)
@@ -73,7 +73,7 @@ stages:
         backendAzureRmStorageAccountName: 'qualityreleasesa'
         backendAzureRmContainerName: 'containerqa'
         backendAzureRmKey: 'terraform.tfstate'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environment/test'
 
     - task: TerraformTaskV1@0
       displayName: Terraform Apply
@@ -82,7 +82,7 @@ stages:
         command: 'apply'
         commandOptions: |
           -auto-approve 
-        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environment/test'
         environmentServiceNameAzureRM: 'azure-connector'
 
 - stage: Build
@@ -353,7 +353,7 @@ stages:
         backendAzureRmStorageAccountName: 'qualityreleasesa'
         backendAzureRmContainerName: 'containerqa'
         backendAzureRmKey: 'terraform.tfstate'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environment/test'
 
     - task: TerraformTaskV1@0
       displayName: Terraform Destroy
@@ -362,5 +362,5 @@ stages:
         command: 'destroy'
         commandOptions: |
           -auto-approve 
-        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environment/test'
         environmentServiceNameAzureRM: 'azure-connector'
