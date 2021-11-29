@@ -1,11 +1,12 @@
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = ">= 2.26"
-    }
-  }
+provider "azurerm" {
+  tenant_id       = "${var.tenant_id}"
+  subscription_id = "${var.subscription_id}"
+  client_id       = "${var.client_id}"
+  client_secret   = "${var.client_secret}"
+  features {}
+}
 
+terraform {
   backend "azurerm" {
     resource_group_name  = "${var.resource_group}"
     storage_account_name = "qualityreleasesa"
@@ -13,13 +14,6 @@ terraform {
     key                  = "terraform.tfstate"
     access_key           = "VpwB4YXfqEfe/q16ZK9JVkrgBdJPmJMsaC+VmXx0w7zsD7itlA+iIG89WIq/k7dZ4LoGNhF989lzot6xVr1Jxg=="
   }
-}
-provider "azurerm" {
-  tenant_id       = "${var.tenant_id}"
-  subscription_id = "${var.subscription_id}"
-  client_id       = "${var.client_id}"
-  client_secret   = "${var.client_secret}"
-  features {}
 }
 
 module "resource_group" {
