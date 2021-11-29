@@ -70,9 +70,9 @@ stages:
         command: 'init'
         backendServiceArm: 'azure-connector'
         backendAzureRmResourceGroupName: 'udemy-azure-test'
-        backendAzureRmStorageAccountName: 'qualityreleasesa'
-        backendAzureRmContainerName: 'containerqa'
-        backendAzureRmKey: 'terraform.tfstate'
+        backendAzureRmStorageAccountName: 'uat7754'
+        backendAzureRmContainerName: 'uat'
+        backendAzureRmKey: '0FvmBvPG9gtOjPyDemYTI4b/AnGLDhCkmyF4pTxWoIuWjL8oaUT+22RgfInig2YIJ6q8FuZDUYh0iRzAdIu8AA=='
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environment/test'
 
     - task: TerraformTaskV2@0
@@ -350,9 +350,9 @@ stages:
         command: 'init'
         backendServiceArm: 'azure-connector'
         backendAzureRmResourceGroupName: 'udemy-azure-test'
-        backendAzureRmStorageAccountName: 'qualityreleasesa'
-        backendAzureRmContainerName: 'containerqa'
-        backendAzureRmKey: 'terraform.tfstate'
+        backendAzureRmStorageAccountName: 'uat7754'
+        backendAzureRmContainerName: 'uat'
+        backendAzureRmKey: '0FvmBvPG9gtOjPyDemYTI4b/AnGLDhCkmyF4pTxWoIuWjL8oaUT+22RgfInig2YIJ6q8FuZDUYh0iRzAdIu8AA=='
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environment/test'
 
     - task: TerraformTaskV1@0
