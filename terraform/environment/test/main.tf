@@ -7,6 +7,7 @@ terraform {
   }
 
   backend "azurerm" {
+    resource_group_name  = "${var.resource_group}"
     storage_account_name = "qualityreleasesa"
     container_name       = "containerqa"
     key                  = "terraform.tfstate"
