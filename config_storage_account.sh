@@ -1,8 +1,8 @@
 #!/bin/bash
 
 RESOURCE_GROUP_NAME=udemy-azure-test
-STORAGE_ACCOUNT_NAME=qualityreleasesa
-CONTAINER_NAME=containerqa
+STORAGE_ACCOUNT_NAME=uat$RANDOM
+CONTAINER_NAME=uat
 
 # Create resource group
 az group create --name $RESOURCE_GROUP_NAME --location eastus

@@ -2,7 +2,7 @@
 subscription_id = "37008964-1c5f-45ca-91ee-48b163a9fc12" # To check it run az account list
 # To find those run az ad sp create-for-rbac --role="Contributor", or check existing role
 client_id = "66f0fdb1-e3cf-4c3f-a22f-3914324b0eef" # appId
-client_secret = "d_fVbaerswIMX9eB5.pWC_z7Y3jA51UnNz" # password
+client_secret = "VpwB4YXfqEfe/q16ZK9JVkrgBdJPmJMsaC+VmXx0w7zsD7itlA+iIG89WIq/k7dZ4LoGNhF989lzot6xVr1Jxg==" # password
 tenant_id = "6dde2af8-dd19-4120-b7de-2f3a75692b88" # tenant_id
 
 # Resource Group/Location

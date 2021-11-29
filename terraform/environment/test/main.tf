@@ -9,10 +9,10 @@ provider "azurerm" {
 terraform {
   backend "azurerm" {
     resource_group_name  = "${var.resource_group}"
-    storage_account_name = "qualityreleasesa"
-    container_name       = "containerqa"
-    key                  = "terraform.tfstate"
-    access_key           = "VpwB4YXfqEfe/q16ZK9JVkrgBdJPmJMsaC+VmXx0w7zsD7itlA+iIG89WIq/k7dZ4LoGNhF989lzot6xVr1Jxg=="
+    storage_account_name = "uat7754"
+    container_name       = "uat"
+    key                  = "0FvmBvPG9gtOjPyDemYTI4b/AnGLDhCkmyF4pTxWoIuWjL8oaUT+22RgfInig2YIJ6q8FuZDUYh0iRzAdIu8AA=="
+  
   }
 }
 
