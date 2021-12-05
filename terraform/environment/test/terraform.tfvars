@@ -7,7 +7,6 @@ tenant_id = "6dde2af8-dd19-4120-b7de-2f3a75692b88" # tenant_id
 
 # Resource Group/Location
 location = "East US"
-resource_group = "udemy-azure-test"
 application_type = "myApplication"
 
 # Network
