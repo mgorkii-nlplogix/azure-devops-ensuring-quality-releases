@@ -5,8 +5,11 @@ client_id = "b7ec4ee6-3f32-4dbf-adc2-7e70a2908731" # appId
 client_secret = "RZqv.wd-Md62-y85ry2e.HbGArRfDKpnZc" # password
 tenant_id = "6dde2af8-dd19-4120-b7de-2f3a75692b88" # tenant_id
 
+key = "0FvmBvPG9gtOjPyDemYTI4b/AnGLDhCkmyF4pTxWoIuWjL8oaUT+22RgfInig2YIJ6q8FuZDUYh0iRzAdIu8AA=="
+
 # Resource Group/Location
 location = "East US"
+resource_group = "udemy-azure-test"
 application_type = "myApplication"
 
 # Network

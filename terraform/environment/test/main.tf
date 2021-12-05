@@ -11,7 +11,7 @@ terraform {
     resource_group_name  = "${var.resource_group}"
     storage_account_name = "uat7754"
     container_name       = "uat"
-    key                  = "0FvmBvPG9gtOjPyDemYTI4b/AnGLDhCkmyF4pTxWoIuWjL8oaUT+22RgfInig2YIJ6q8FuZDUYh0iRzAdIu8AA=="
+    key                  = "terraform.tfstate"
   
   }
 }
